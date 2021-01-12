@@ -10,13 +10,22 @@
 <body>
     <script>
 
+        //Scores to begin game
+        let playerScore = 0;
+        let computerScore = 0;
 
         function game() {
             playRound();
+            keepScore();
             playRound();
+            keepScore();
             playRound();
+            keepScore();
             playRound();
+            keepScore();
             playRound();
+            keepScore();
+            finalScore();
         }
 
         //The Player Makes a Choice
@@ -32,46 +41,43 @@
             return computerChoice;
         }
 
-        function playRound(playerChoice, computerChoice) {
+        function playRound(playerChoice, computerChoice, playerScore, computerScore) {
             //The Player Wins (Could cut down by making win message standard and return selection choice automatically)
             playerChoice = playerSelection();
             computerChoice = computerSelection();
 
-            //Scores to begin game
-            let playerScore = 0;
-            let computerScore = 0;
+
 
             //The Player wins
             if (playerChoice == "rock" && computerChoice == "scissors") {
                 console.log("You Win! Rock beats scissors!")
-                keepScore(++playerScore, computerScore);
+                playerWin();
 
             }
             else if (playerChoice == "paper" && computerChoice == "rock") {
                 console.log("You Win! Paper beats rock!")
-                keepScore(++playerScore, computerScore);
-                
+                playerWin();
+
             }
             else if (playerChoice == "scissors" && computerChoice == "paper") {
                 console.log("You Win! Scissors beats paper!")
-                keepScore(++playerScore, computerScore);
-               
+                playerWin();
+
             }
 
             //The Player Loses
             else if (playerChoice == "scissors" && computerChoice == "rock") {
                 console.log("You Lose! Rock beats scissors!")
-                keepScore(playerScore, ++computerScore);
+                computerWin();
             }
             else if (playerChoice == "rock" && computerChoice == "paper") {
                 console.log("You Lose! Paper beats rock!")
-                keepScore(playerScore, ++computerScore);
+                computerWin();
 
             }
             else if (playerChoice == "paper" && computerChoice == "scissors") {
                 console.log("You Lose! Scissors beats paper!")
-                keepScore(playerScore, ++computerScore);
-
+                computerWin();
             }
             //Same choice, therefore a draw
             else {
@@ -81,16 +87,36 @@
 
         }
 
-        function keepScore(playerScore, computerScore) {
-            console.log(playerScore, computerScore);
+        //computer wins and adds a score to scoreboard
+        function computerWin() {
+            computerScore++;
+            return computerScore;
+            
+        }
+        //Player Wins and adds a score to scoreboard
+        function playerWin() {
+            playerScore++;
+            return playerScore;
+            
         }
 
+        function keepScore() {
+            console.log(playerScore);
+            console.log(computerScore);
+        }
 
         function finalScore(playerScore, computerScore) {
             if (playerScore > computerScore) {
+                console.log(playerScore + computerScore);
                 console.log("You Win!")
             }
+
+            else if (playerScore = computerScore) {
+                console.log(playerScore + computerScore);
+                console.log("It's a draw!")
+            }
             else {
+                console.log(playerScore + computerScore);
                 console.log("You Lose. The Computer Wins this time!")
             }
         }
