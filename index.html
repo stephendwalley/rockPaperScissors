@@ -91,33 +91,34 @@
         function computerWin() {
             computerScore++;
             return computerScore;
-            
+
         }
         //Player Wins and adds a score to scoreboard
         function playerWin() {
             playerScore++;
             return playerScore;
-            
+
         }
 
         function keepScore() {
             console.log(playerScore);
             console.log(computerScore);
+            return computerScore;
+            return playerScore;
         }
 
-        function finalScore(playerScore, computerScore) {
+        function finalScore() {
             if (playerScore > computerScore) {
-                console.log(playerScore + computerScore);
-                console.log("You Win!")
+                console.log("You Win!");
             }
-
-            else if (playerScore = computerScore) {
-                console.log(playerScore + computerScore);
+            else if (playerScore === computerScore) {
                 console.log("It's a draw!")
             }
+            else if (playerScore < computerScore) {
+                console.log("You Lose. The Computer Wins this time!");
+            }
             else {
-                console.log(playerScore + computerScore);
-                console.log("You Lose. The Computer Wins this time!")
+                console.log("error");
             }
         }
 
