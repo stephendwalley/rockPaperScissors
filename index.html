@@ -10,6 +10,15 @@
 <body>
     <script>
 
+
+        function game() {
+            playRound();
+            playRound();
+            playRound();
+            playRound();
+            playRound();
+        }
+
         //The Player Makes a Choice
         function playerSelection() {
             let playerChoice = prompt("Rock, Paper, or Scissors?").toLowerCase();
@@ -28,32 +37,40 @@
             playerChoice = playerSelection();
             computerChoice = computerSelection();
 
+            //Scores to begin game
+            let playerScore = 0;
+            let computerScore = 0;
 
             //The Player wins
             if (playerChoice == "rock" && computerChoice == "scissors") {
                 console.log("You Win! Rock beats scissors!")
+                keepScore(++playerScore, computerScore);
 
             }
             else if (playerChoice == "paper" && computerChoice == "rock") {
                 console.log("You Win! Paper beats rock!")
-
+                keepScore(++playerScore, computerScore);
+                
             }
             else if (playerChoice == "scissors" && computerChoice == "paper") {
                 console.log("You Win! Scissors beats paper!")
-
+                keepScore(++playerScore, computerScore);
+               
             }
 
             //The Player Loses
             else if (playerChoice == "scissors" && computerChoice == "rock") {
                 console.log("You Lose! Rock beats scissors!")
-
+                keepScore(playerScore, ++computerScore);
             }
             else if (playerChoice == "rock" && computerChoice == "paper") {
                 console.log("You Lose! Paper beats rock!")
+                keepScore(playerScore, ++computerScore);
 
             }
             else if (playerChoice == "paper" && computerChoice == "scissors") {
                 console.log("You Lose! Scissors beats paper!")
+                keepScore(playerScore, ++computerScore);
 
             }
             //Same choice, therefore a draw
@@ -63,6 +80,11 @@
             }
 
         }
+
+        function keepScore(playerScore, computerScore) {
+            console.log(playerScore, computerScore);
+        }
+
 
         function finalScore(playerScore, computerScore) {
             if (playerScore > computerScore) {
