@@ -9,55 +9,62 @@
 
 <body>
     <script>
-
+        //starting the game
         function game() {
             computerSelection();
-            playerSelection();
-            playRound();
-        }
+        };
+
+
         //Computer Randomly Chooses option
         function computerSelection() {
             let options = ["rock", "paper", "scissors"];
-            let computerSelection = options[Math.floor(Math.random() * options.length)];
-            return computerSelection;
-        }
+            let computerChoice = options[Math.floor(Math.random() * options.length)];
+            return computerChoice;
+            playerSelection();
+        };
+
         //The Player Makes a Choice
         function playerSelection() {
-            let playerSelection = prompt("Rock, Paper, or Scissors?");
-            return playerSelection.toLowerCase();
+            let playerChoice = prompt("Rock, Paper, or Scissors?");
+            return (playerChoice, computerSelection());
         }
 
 
 
-        function playRound(playerSelection, computerSelection) {
+        function playRound(playerChoice, computerChoice) {
             //The Player Wins (Could cut down by making win message standard and return selection choice automatically)
-            function playerWins() {
-                if (playerSelection == "rock" && computerSelection == "scissors") {
-                    alert("You Win! Rock beats scissors!")
-                }
-                else if (playerSelection == "paper" && computerSelection == "rock") {
-                    alert("You Win! Paper beats rock!")
-                }
-                else if (playerSelection == "scissors" && computerSelection == "paper") {
-                    alert("You Win! Scissors beats paper!")
-                }
+            playerChoice = playerSelection();
+            computerChoice = computerSelection();
 
-                //The Player Loses
-                function playerLoses() {
-                    if (playerSelection == "rock" && computerSelection == "paper") {
-                        alert("You Lose! Rock beats scissors!")
-                    }
-                    else if (playerSelection == "paper" && computerSelection == "scissors") {
-                        alert("You Lose! Paper beats rock!")
-                    }
-                    else if (playerSelection == "scissors" && computerSelection == "") {
-                        alert("You Lose! Scissors beats paper!")
-                    }
-                }
+
+
+            if (playerChoice == "rock" && computerChoice == "scissors") {
+                alert("You Win! Rock beats scissors!")
             }
-
-
+            else if (playerChoice == "paper" && computerChoice == "rock") {
+                alert("You Win! Paper beats rock!")
+            }
+            else if (playerChoice == "scissors" && computerChoice == "paper") {
+                alert("You Win! Scissors beats paper!")
+            }
+            /*
+                            //The Player Loses
+                            function playerLoses() {
+                                if (playerSelection == "rock" && computerSelection == "paper") {
+                                    alert("You Lose! Rock beats scissors!")
+                                }
+                                else if (playerSelection == "paper" && computerSelection == "scissors") {
+                                    alert("You Lose! Paper beats rock!")
+                                }
+                                else if (playerSelection == "scissors" && computerSelection == "") {
+                                    alert("You Lose! Scissors beats paper!")
+                                }
+                           
+                            */
         }
+
+
+
     </script>
 
 </body>
