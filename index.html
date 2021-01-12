@@ -10,13 +10,6 @@
 <body>
     <script>
 
-        //starting the game
-        function game() {
-        };
-
-
-
-
         //The Player Makes a Choice
         function playerSelection() {
             let playerChoice = prompt("Rock, Paper, or Scissors?");
@@ -36,29 +29,31 @@
             computerChoice = computerSelection();
 
 
-
+            //The Player wins
             if (playerChoice == "rock" && computerChoice == "scissors") {
-                alert("You Win! Rock beats scissors!")
+                console.log("You Win! Rock beats scissors!")
             }
             else if (playerChoice == "paper" && computerChoice == "rock") {
-                alert("You Win! Paper beats rock!")
+                console.log("You Win! Paper beats rock!")
             }
             else if (playerChoice == "scissors" && computerChoice == "paper") {
-                alert("You Win! Scissors beats paper!")
+                console.log("You Win! Scissors beats paper!")
             }
 
             //The Player Loses
             else if (playerChoice == "scissors" && computerChoice == "rock") {
-                alert("You Lose! Rock beats scissors!")
+                console.log("You Lose! Rock beats scissors!")
             }
             else if (playerChoice == "rock" && computerChoice == "paper") {
-                alert("You Lose! Paper beats rock!")
+                console.log("You Lose! Paper beats rock!")
             }
             else if (playerChoice == "paper" && computerChoice == "scissors") {
-                alert("You Lose! Scissors beats paper!")
+                console.log("You Lose! Scissors beats paper!")
             }
-
-
+            //Same choice, therefore a draw
+            else {
+                console.log("It's a draw! You both picked the same. :)")
+            }
         }
 
 
