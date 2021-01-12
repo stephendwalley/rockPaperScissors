@@ -12,8 +12,8 @@
 
         //The Player Makes a Choice
         function playerSelection() {
-            let playerChoice = prompt("Rock, Paper, or Scissors?");
-            return playerChoice.toLowerCase;
+            let playerChoice = prompt("Rock, Paper, or Scissors?").toLowerCase();
+            return playerChoice;
         }
 
         //Computer makes a choice
@@ -32,31 +32,39 @@
             //The Player wins
             if (playerChoice == "rock" && computerChoice == "scissors") {
                 console.log("You Win! Rock beats scissors!")
+
             }
             else if (playerChoice == "paper" && computerChoice == "rock") {
                 console.log("You Win! Paper beats rock!")
+
             }
             else if (playerChoice == "scissors" && computerChoice == "paper") {
                 console.log("You Win! Scissors beats paper!")
+
             }
 
             //The Player Loses
             else if (playerChoice == "scissors" && computerChoice == "rock") {
                 console.log("You Lose! Rock beats scissors!")
+
             }
             else if (playerChoice == "rock" && computerChoice == "paper") {
                 console.log("You Lose! Paper beats rock!")
+
             }
             else if (playerChoice == "paper" && computerChoice == "scissors") {
                 console.log("You Lose! Scissors beats paper!")
+
             }
             //Same choice, therefore a draw
             else {
                 console.log("It's a draw! You both picked the same. :)")
+
             }
+
         }
 
-        function score(playerScore, computerScore) {
+        function finalScore(playerScore, computerScore) {
             if (playerScore > computerScore) {
                 console.log("You Win!")
             }
