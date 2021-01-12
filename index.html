@@ -13,7 +13,7 @@
         //The Player Makes a Choice
         function playerSelection() {
             let playerChoice = prompt("Rock, Paper, or Scissors?");
-            return playerChoice;
+            return playerChoice.toLowerCase;
         }
 
         //Computer makes a choice
@@ -56,7 +56,14 @@
             }
         }
 
-
+        function score(playerScore, computerScore) {
+            if (playerScore > computerScore) {
+                console.log("You Win!")
+            }
+            else {
+                console.log("You Lose. The Computer Wins this time!")
+            }
+        }
 
     </script>
 
