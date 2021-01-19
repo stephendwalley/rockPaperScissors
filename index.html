@@ -14,6 +14,7 @@
     <div id="setScorePlayer"></div>
     <div id="setScoreComputer"></div>
     <div id="finalResults"></div>
+    <div id="container"></div>
 
     <script>
 
@@ -29,7 +30,19 @@
       const setScorePlayer = document.querySelector("#setScorePlayer");
       const setScoreComputer = document.querySelector("#setScoreComputer");
       const results = document.querySelector("#finalResults");
+      const resetContainer = document.querySelector("#container")
 
+function createResetButton() {
+    const resetButton = document.createElement('input')
+    resetButton.type = "button"
+    resetButton.value = "Restart the Game";
+    resetButton.onclick = restartGame();
+    resetContainer.appendChild(resetButton)
+}
+      function restartGame() {
+        playerScore = 0;
+        computerScore = 0;
+}
 
       //Scores to begin game
       let playerScore = 0;
@@ -134,21 +147,27 @@
       function finalScore() {
           if (playerScore > computerScore) {
               results.textContent = "You Win!"
+              createResetButton();
               console.log("You Win!");
           }
           else if (playerScore === computerScore) {
               results.textContent = "It's a draw!"
+              createResetButton();
               console.log("It's a draw!")
           }
           else if (playerScore < computerScore) {
               results.textContent = "You Lose.  The computer wins this time!"
+              createResetButton();
               console.log("You Lose. The Computer Wins this time!");
           }
           else {
               results.textContent = "ERROR"
+              createResetButton();
               console.log("error");
           }
       }
+
+
     </script>
   </body>
 </html>
